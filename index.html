@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mindset, Lifestyle & Marketing - Francesco Azzolin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    :root {
+      --bg-main: #0a0e13;
+      --bg-card: #121820;
+      --bg-card-hover: #18202c;
+      --accent-lifestyle: #10b981;
+      --accent-marketing: #3b82f6;
+      --accent-weekly: #ec4899;
+      --accent-gold: #f59e0b;
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --border-color: rgba(255, 255, 255, 0.08);
+      --font-heading: 'Playfair Display', Georgia, serif;
+      --font-body: 'Plus Jakarta Sans', -apple-system, sans-serif;
+      --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+    /* HEADER */
+    .top-header {
+      height: 75px;
+      background: rgba(10, 14, 19, 0.9);
+      backdrop-filter: blur(12px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .site-brand {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .site-brand span { color: var(--accent-lifestyle); }
+
+    .nav-back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.06);
+      color: var(--text-main);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: var(--transition);
+      border: 1px solid var(--border-color);
+    }
+    .nav-back-btn:hover {
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+    }
+
+    main {
+      flex: 1;
+      max-width: 1000px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem;
+    }
+
+    /* SISTEMA DI PAGINE (VIEW) */
+    .view-page {
+      display: none;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+    .view-page.active { display: block; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* HOME HERO */
+    .hero-title {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .hero-title h1 {
+      font-family: var(--font-heading);
+      font-size: 2.6rem;
+      margin-bottom: 0.6rem;
+    }
+    .hero-title p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+    }
+
+    /* LE 4 SCHEDE HOME */
+    .initial-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .hub-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 2.2rem 1.5rem;
+      text-align: center;
+      transition: var(--transition);
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+    .hub-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: var(--card-accent, var(--accent-lifestyle));
+      border-radius: 16px 16px 0 0;
+    }
+    .hub-card:hover {
+      background: var(--bg-card-hover);
+      transform: translateY(-6px);
+      border-color: rgba(255, 255, 255, 0.18);
+    }
+    .card-icon {
+      width: 60px; height: 60px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.04);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1.2rem;
+      color: var(--card-accent, var(--accent-lifestyle));
+    }
+    .hub-card h2 {
+      font-family: var(--font-heading);
+      font-size: 1.45rem;
+      margin-bottom: 0.6rem;
+    }
+    .hub-card p {
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      margin-bottom: 1.5rem;
+    }
+    .card-btn {
+      margin-top: auto;
+      padding: 8px 18px;
+      border-radius: 20px;
+      font-weight: 600;
+      font-size: 0.82rem;
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text-main);
+    }
+    .hub-card:hover .card-btn {
+      background: var(--card-accent, var(--accent-lifestyle));
+      color: #fff;
+    }
+
+    /* INDICE / SCHEDARIO */
+    .index-header {
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .index-header h2 {
+      font-family: var(--font-heading);
+      font-size: 2.2rem;
+      display: flex; align-items: center; gap: 12px;
+    }
+
+    .index-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .index-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.2rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .index-item:hover {
+      background: var(--bg-card-hover);
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateX(4px);
+    }
+    .index-item-info {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .index-code {
+      font-weight: 800;
+      font-size: 0.85rem;
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.08);
+    }
+    .index-item-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    /* Dettaglio Paragrafo */
+    .article-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 2.5rem;
+      margin-bottom: 2rem;
+    }
+    .article-box h3 {
+      font-family: var(--font-heading);
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+    .article-content p {
+      color: #d1d5db;
+      margin-bottom: 1rem;
+      line-height: 1.8;
+      font-size: 1.02rem;
+    }
+    .article-content ul {
+      margin: 1rem 0 1.5rem 1.5rem;
+      color: #d1d5db;
+    }
+    .article-content li { margin-bottom: 0.5rem; }
+
+    /* SEZIONE COMMENTI */
+    .comments-wrapper {
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border-color);
+    }
+    .comments-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .comment-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      margin-bottom: 1.8rem;
+    }
+    .comment-item {
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 12px;
+      padding: 1.2rem;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .comment-item.reply-item {
+      margin-left: 2rem;
+      border-left: 3px solid var(--accent-gold);
+      background: rgba(245, 158, 11, 0.04);
+    }
+    .comment-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+      font-size: 0.85rem;
+    }
+    .comment-author {
+      font-weight: 700;
+      color: var(--text-main);
+    }
+    .author-badge {
+      background: var(--accent-gold);
+      color: #000;
+      font-size: 0.7rem;
+      padding: 2px 6px;
+      border-radius: 4px;
+      margin-left: 6px;
+      font-weight: 800;
+    }
+    .comment-time { color: var(--text-muted); }
+    .comment-text {
+      font-size: 0.95rem;
+      color: #cbd5e1;
+      margin-bottom: 0.8rem;
+    }
+
+    .comment-actions {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.82rem;
+    }
+    .action-btn {
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: var(--transition);
+    }
+    .action-btn:hover { color: #fff; }
+    .action-btn.liked { color: #ef4444; }
+
+    /* FORM COMMENTI SENZA COMPILARE IL NOME */
+    .add-comment-form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+    .add-comment-form textarea {
+      width: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 12px 16px;
+      color: #fff;
+      font-family: inherit;
+      font-size: 0.95rem;
+      resize: vertical;
+    }
+    .add-comment-form textarea:focus {
+      outline: none;
+      border-color: var(--accent-lifestyle);
+    }
+    .submit-comment-btn {
+      align-self: flex-end;
+      padding: 9px 20px;
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.88rem;
+      transition: var(--transition);
+    }
+    .submit-comment-btn:hover {
+      background: var(--accent-lifestyle);
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 2.5rem 1rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border-color);
+      font-size: 0.92rem;
+      margin-top: auto;
+    }
+    footer strong { color: var(--text-main); }
+  /* ===== RESPONSIVE ===== */
+body { min-height: 100dvh; }
+img, svg { max-width: 100%; }
+.article-content, .comment-text { overflow-wrap: anywhere; }
+
+/* Focus visibile per telecomando TV e tastiera */
+.hub-card:focus-visible,
+.index-item:focus-visible,
+.site-brand:focus-visible,
+.nav-back-btn:focus-visible,
+.action-btn:focus-visible,
+.submit-comment-btn:focus-visible {
+  outline: 3px solid var(--accent-gold);
+  outline-offset: 3px;
+}
+.hub-card:focus-visible { background: var(--bg-card-hover); transform: translateY(-6px); }
+.hub-card:focus-visible .card-btn { background: var(--card-accent, var(--accent-lifestyle)); color: #fff; }
+.index-item:focus-visible { background: var(--bg-card-hover); transform: translateX(4px); }
+
+/* Dispositivi touch: niente effetti "hover" appiccicosi */
+@media (hover: none) {
+  .hub-card:hover, .index-item:hover { transform: none; }
+}
+
+/* ---- TV e schermi grandi ---- */
+@media (min-width: 1600px) {
+  html { font-size: 20px; }
+  main { max-width: 1400px; }
+  .top-header { height: 90px; }
+}
+@media (min-width: 2400px) {
+  html { font-size: 26px; }
+  main { max-width: 1800px; }
+  .top-header { height: 110px; }
+}
+
+/* ---- Tablet ---- */
+@media (max-width: 1024px) {
+  main { padding: 2rem 1.25rem; }
+  .hero-title h1 { font-size: 2.2rem; }
+  .initial-cards-grid { grid-template-columns: repeat(2, 1fr); }
+  .article-box { padding: 2rem; }
+}
+
+/* ---- Telefono ---- */
+@media (max-width: 640px) {
+  .top-header { height: 64px; padding: 0 1rem; }
+  .site-brand { font-size: 1.15rem; }
+  .nav-back-btn { padding: 8px 12px; font-size: 0.8rem; min-height: 40px; }
+
+  main { padding: 1.5rem 1rem; }
+  .hero-title { margin-bottom: 2rem; }
+  .hero-title h1 { font-size: 1.8rem; }
+  .hero-title p { font-size: 0.95rem; }
+
+  .initial-cards-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .hub-card { padding: 1.6rem 1.2rem; }
+
+  .index-header h2 { font-size: 1.6rem; }
+  .index-item { padding: 1rem 1.1rem; min-height: 56px; }
+  .index-item-info { gap: 10px; }
+  .index-item-title { font-size: 1rem; }
+
+  .article-box { padding: 1.4rem; border-radius: 14px; }
+  .article-box h3 { font-size: 1.5rem; }
+  .article-content p { font-size: 0.98rem; line-height: 1.7; }
+  .article-content ol { margin: 1rem 0 1.5rem 1.4rem; color: #d1d5db; }
+  .article-content ul { margin-left: 1.2rem; }
+
+  .comment-item.reply-item { margin-left: 1rem; }
+  .comment-header { flex-wrap: wrap; gap: 4px; }
+  .action-btn { min-height: 36px; }
+  .add-comment-form textarea { font-size: 16px; } /* evita lo zoom automatico su iPhone */
+  .submit-comment-btn { width: 100%; min-height: 44px; }
+
+  footer { padding: 1.5rem 1rem; font-size: 0.8rem; }
+}
+
+/* ---- Telefono in orizzontale (schermo basso) ---- */
+@media (max-height: 500px) and (orientation: landscape) {
+  .top-header { height: 56px; }
+  main { padding: 1.5rem 1rem; }
+}
+
+/* ---- Smartwatch ---- */
+@media (max-width: 300px) {
+  html { font-size: 13px; }
+  .top-header { height: 52px; padding: 0 0.5rem; }
+  .site-brand { font-size: 0.95rem; }
+  .nav-back-btn { font-size: 0; gap: 0; padding: 6px 10px; } /* solo la freccia */
+  .nav-back-btn i { font-size: 0.85rem; }
+
+  main { padding: 1rem 0.6rem; }
+  .hero-title { margin-bottom: 1.2rem; }
+  .hero-title h1 { font-size: 1.3rem; }
+  .hero-title p { font-size: 0.85rem; }
+
+  .hub-card { padding: 1.2rem 0.8rem; }
+  .card-icon { width: 44px; height: 44px; font-size: 1.1rem; margin-bottom: 0.8rem; }
+  .hub-card h2 { font-size: 1.1rem; }
+  .hub-card p { font-size: 0.8rem; margin-bottom: 1rem; }
+
+  .index-header h2 { font-size: 1.2rem; }
+  .index-item { padding: 0.8rem; }
+  .index-item-title { font-size: 0.9rem; }
+
+  .article-box { padding: 1rem; }
+  .article-box h3 { font-size: 1.2rem; }
+  .article-content p { font-size: 0.9rem; }
+  .comment-item { padding: 0.8rem; }
+  .comment-item.reply-item { margin-left: 0.5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="top-header">
+    <div class="site-brand" onclick="showView('home-view')">
+      Mindset <span>&</span> Marketing
+    </div>
+    <button class="nav-back-btn" id="header-back-btn" style="display: none;" onclick="goBack()">
+      <i class="fa-solid fa-arrow-left"></i> Torna Indietro
+    </button>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main>
+
+    <!-- ==================== 1. HOME VIEW (LE 4 SCHEDE) ==================== -->
+    <div id="home-view" class="view-page active">
+      <div class="hero-title">
+        <h1>Crescita, Mindset e Marketing</h1>
+        <p>Seleziona un'area per accedere allo schedario completo dei consigli e delle strategie.</p>
+      </div>
+
+      <div class="initial-cards-grid">
+        <!-- Card Lifestyle -->
+        <div class="hub-card" style="--card-accent: var(--accent-lifestyle);" onclick="showView('lifestyle-index-view')">
+          <div class="card-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+          <h2>Lifestyle</h2>
+          <p>Consigli pratici su routine, gestione del tempo e benessere quotidiano.</p>
+          <span class="card-btn">Apri Schedario</span>
+        </div>
+
+        <!-- Card Marketing -->
+        <div class="hub-card" style="--card-accent: var(--accent-marketing);" onclick="showView('marketing-index-view')">
+          <div class="card-icon"><i class="fa-solid fa-bullseye"></i></div>
+          <h2>Marketing</h2>
+          <p>Guida passo-passo per iniziare ad approcciarti alle strategie di marketing.</p>
+          <span class="card-btn">Apri Schedario</span>
+        </div>
+
+        <!-- Card Consiglio Settimanale -->
+        <div class="hub-card" style="--card-accent: var(--accent-weekly);" onclick="showView('weekly-view')">
+          <div class="card-icon"><i class="fa-solid fa-calendar-check"></i></div>
+          <h2>Consiglio Settimanale</h2>
+          <p>Il consiglio speciale e l'azione concreta da applicare questa settimana.</p>
+          <span class="card-btn">Leggi Consiglio</span>
+        </div>
+
+        <!-- Card Commenti -->
+        <div class="hub-card" style="--card-accent: var(--accent-gold);" onclick="showView('comments-view')">
+          <div class="card-icon"><i class="fa-solid fa-comments"></i></div>
+          <h2>Commenti</h2>
+          <p>Spazio di confronto diretto dove puoi farmi qualsiasi domanda.</p>
+          <span class="card-btn">Vai alle Discussioni</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== 2. INDICE LIFESTYLE ==================== -->
+    <div id="lifestyle-index-view" class="view-page">
+      <div class="index-header">
+        <h2><i class="fa-solid fa-leaf" style="color: var(--accent-lifestyle);"></i> Schedario Lifestyle</h2>
+      </div>
+      <div class="index-list">
+        <div class="index-item" onclick="showView('art-1-1-view')">
+          <div class="index-item-info">
+            <span class="index-code" style="color: var(--accent-lifestyle);">1.1</span>
+            <span class="index-item-title">Routine Mattutina</span>
+          </div>
+          <i class="fa-solid fa-chevron-right" style="color: var(--text-muted);"></i>
+        </div>
+        <div class="index-item" onclick="showView('art-1-2-view')">
+          <div class="index-item-info">
+            <span class="index-code" style="color: var(--accent-lifestyle);">1.2</span>
+            <span class="index-item-title">Gestione del sonno</span>
+          </div>
+          <i class="fa-solid fa-chevron-right" style="color: var(--text-muted);"></i>
+        </div>
+        <div class="index-item" onclick="showView('art-1-3-view')">
+          <div class="index-item-info">
+            <span class="index-code" style="color: var(--accent-lifestyle);">1.3</span>
+            <span class="index-item-title">Migliora il fisico</span>
+          </div>
+          <i class="fa-solid fa-chevron-right" style="color: var(--text-muted);"></i>
+        </div>
+        <div class="index-item" onclick="showView('art-1-4-view')">
+            <div class="index-item-info">
+              <span class="index-code" style="color: var(--accent-lifestyle);">1.4</span>
+              <span class="index-item-title">Sii te stesso</span>
+            </div>
+            <i class="fa-solid fa-chevron-right" style="color: var(--text-muted);"></i>
+          </div>
+          <div class="index-item" onclick="showView('art-1-5-view')">
+            <div class="index-item-info">
+              <span class="index-code" style="color: var(--accent-lifestyle);">1.5</span>
+              <span class="index-item-title">Attenzione alle ragazze</span>
+            </div>
+            <i class="fa-solid fa-chevron-right" style="color: var(--text-muted);"></i>
+          </div>
+           <div class="index-item" onclick="showView('art-1-6-view')">
+            <div class="index-item-info">
+              <span class="index-code" style="color: var(--accent-lifestyle);">1.6</span>
+              <span class="index-item-title">Le dipendenze</span>
+            </div>
+            <i class="fa-solid fa-chevron-right" style="color: var(--text-muted);"></i>
+          </div>
+      </div>
+    </div>
+
+    <!-- ARTICOLO LIFESTYLE 1.1 -->
+    <div id="art-1-1-view" class="view-page">
+      <article class="article-box">
+        <span class="index-code" style="color: var(--accent-lifestyle); margin-bottom: 10px; display: inline-block;">1.1 LIFESTYLE</span>
+        <h3>Routine Mattutina</h3>
+        <div class="article-content">
+          <p>La qualità della tua giornata dipende in gran parte dai primi 60 minuti dopo il risveglio. L'obiettivo non è svegliarsi alle 5 del mattino, ma creare un risveglio calmo e rilassante.<br>
+             Ecco 4 consigli che ti svolteranno la mattinata:
+          <ol>
+            <li>Svegliati possibilmente con una sveglia tradizionale e non con la sveglia del telefono.</li>
+            <li>Bevi acqua appena dopo il risveglio.</li>
+            <li>Non usare il telefono nei 20/30 minuti dopo il risveglio, così facendo non ti farai stressare la mente da instagram/tik tok.</li>
+            <li>Aggiungi alla tua colazione carboidrati e fibre, così facendo avrai l'enegia per affrontare la mattinata.</li>
+          </ol>
+        </p>
+        </div>
+        <div class="comments-wrapper">
+          <div class="comments-title"><i class="fa-regular fa-comment"></i> Commenti su questa scheda</div>
+          <div class="comment-list" id="comments-1-1"></div>
+          <form class="add-comment-form" onsubmit="addComment(event, 'comments-1-1')">
+            <textarea rows="2" placeholder="Scrivi un commento..." required></textarea>
+            <button type="submit" class="submit-comment-btn">Invia Commento</button>
+          </form>
+        </div>
+      </article>
+    </div>
+
+    <!-- ARTICOLO LIFESTYLE 1.2 -->
+    <div id="art-1-2-view" class="view-page">
+      <article class="article-box">
+        <span class="index-code" style="color: var(--accent-lifestyle); margin-bottom: 10px; display: inline-block;">1.2 LIFESTYLE</span>
+        <h3>Gestione del sonno</h3>
+        <div class="article-content">
+          <p>L'accumulo di stress deriva spesso dall'incapacità di creare confini chiari col riposo. Il sonno è il momento in cui il corpo riposa e recupera energia.
+             Dormire almeno 8 ti permetterà di lavorare meglio il doppo/triplo di chi dorme poco.
+          </p>
+        </div>
+        <div class="comments-wrapper">
+          <div class="comments-title"><i class="fa-regular fa-comment"></i> Commenti</div>
+          <div class="comment-list" id="comments-1-2"></div>
+          <form class="add-comment-form" onsubmit="addComment(event, 'comments-1-2')">
+            <textarea rows="2" placeholder="Scrivi un commento..." required></textarea>
+            <button type="submit" class="submit-comment-btn">Invia Commento</button>
+          </form>
+        </div>
+      </article>
+    </div>
+
+    <!-- ARTICOLO LIFESTYLE 1.3 -->
+    <div id="art-1-3-view" class="view-page">
+      <article class="article-box">
+        <span class="index-code" style="color: var(--accent-lifestyle); margin-bottom: 10px; display: inline-block;">1.3 LIFESTYLE</span>
+        <h3>Migliora il fisico</h3>
+        <div class="article-content">
+          <p>Inizia ad allenarti, mangia sano e prenditi cura del tuo corpo. Quando ti vedi migliore allo specchio anche il umore migliora e inizierai ad essere sempre più determinato.<br>
+             E ricorda fallo solo per te stesso non per gli altri, non per ricevere approvazioni dalle altre persone.</p>
+        </div>
+        <div class="comments-wrapper">
+          <div class="comments-title"><i class="fa-regular fa-comment"></i> Commenti</div>
+          <div class="comment-list" id="comments-1-3"></div>
+          <form class="add-comment-form" onsubmit="addComment(event, 'comments-1-3')">
+            <textarea rows="2" placeholder="Scrivi un commento..." required></textarea>
+            <button type="submit" class="submit-comment-btn">Invia Commento</button>
+          </form>
+        </div>
+      </article>
+    </div>
+
+     <!-- ARTICOLO LIFESTYLE 1.4 -->
+    <div id="art-1-4-view" class="view-page">
+      <article class="article-box">
+        <span class="index-code" style="color: var(--accent-lifestyle); margin-bottom: 10px; display: inline-block;">1.4 LIFESTYLE</span>
+        <h3>Sii te stesso</h3>
+        <div class="article-content">
+          <p>Se gli altri fanno qualcosa non significa che anche tu debba farla. Se gli altri indossano o fanno qualcosa che a ti fa stare a disagio di dì no.<br>
+             Se ti continuano a farla fare nonostante tu non voglia o ti dicono che sei sbagliato non esitare ad andartene perchè ricordati che tu vai prima di tutto.</p>
+        </div>
+        <div class="comments-wrapper">
+          <div class="comments-title"><i class="fa-regular fa-comment"></i> Commenti</div>
+          <div class="comment-list" id="comments-1-4"></div>
+          <form class="add-comment-form" onsubmit="addComment(event, 'comments-1-4')">
+            <textarea rows="2" placeholder="Scrivi un commento..." required></textarea>
+            <button type="submit" class="submit-comment-btn">Invia Commento</button>
+          </form>
+        </div>
+      </article>
+    </div>
+     
+    <!-- ARTICOLO LIFESTYLE 1.5 -->
+    <div id="art-1-5-view" class="view-page">
+      <article class="article-box">
+        <span class="index-code" style="color: var(--accent-lifestyle); margin-bottom: 10px; display: inline-block;">1.5 LIFESTYLE</span>
+        <h3>Attenzione alle ragazze</h3>
+        <div class="article-content">
+          <p>Le ragazze sono una parte fondamentale nella vita di una persona ma alle volte possono anche diventare anche un peso. Solitamente una ragazza e in generale un partner è una persona che ti dovrebbe spronare a fare meglio e ti renderebbe anche più felice,<br>
+            diventa un peso quando si entra in una relazione tossica ossia quando non ti senti a tuo agio con l'altra persona e senti proprio che ti stai logorando dentro. Ecco in quei casi puoi fare solo una cosa lasciare il tuo partner.<br>
+            Anche se all'inizio ti rentirai triste e male poi col passare dei giorni capirai che hai fatto bene e inizierai a diventare la versione migliore di te stesso. Oltre a ciò devi stare attento a non trovare una ragazza che vuole solo soffisfare i propri bisogni(sapete cosa intendo).<br>
+            Quindi vi dico trovate una ragazza che ti renda davvero perchè se non lo fai indovina sei stupido. 
+        </p>
+        </div>
+        <div class="comments-wrapper">
+          <div class="comments-title"><i class="fa-regular fa-comment"></i> Commenti su questa scheda</div>
+          <div class="comment-list" id="comments-1-5"></div>
+          <form class="add-comment-form" onsubmit="addComment(event, 'comments-1-5')">
+            <textarea rows="2" placeholder="Scrivi un commento..." required></textarea>
+            <button type="submit" class="submit-comment-btn">Invia Commento</button>
+          </form>
+        </div>
+      </article>
+    </div>
+
+     <!-- ARTICOLO LIFESTYLE 1.6 -->
+    <div id="art-1-6-view" class="view-page">
+      <article class="article-box">
+        <span class="index-code" style="color: var(--accent-lifestyle); margin-bottom: 10px; display: inline-block;">1.6 LIFESTYLE</span>
+        <h3>Le dipendenze</h3>
+        <div class="article-content">
+          <p>Ricorda nel mondo non esistono cose buone e cose cattive, ma le cose buone se fatte con un'alta frequenza indovina diventano cattive. Vi faccio alcuni esempi; esempio il fumo se fumi una sigaretta una volta ogni tanto non ti vengono mica le malattie ai polmoni, oppure anche l'alcol infatti se lo bevi una volta ogni tanto il tuo fegato lo digerira come niente. <br>
+             Lo stesso vale per il cibo infatti se mangi dolci una volta ogni tanto non comprometterai la tua forma fisica e indovina anche l'acqua se bevuta in troppa quantità diventa pericolosa.<br>
+            Questo per farti capire che è la dose a creare l'effetto e di conseguenza porta anche alla dipendenza.</p>
+        </div>
+        <div class="comments-wrapper">
+          <div class="comments-title"><i class="fa-regular fa-comment"></i> Commenti su questa scheda</div>
+          <div class="comment-list" id="comments-1-6"></div>
+          <form class="add-comment-form" onsubmit="addComment(event, 'comments-1-6')">
+            <textarea rows="2" placeholder="Scrivi un commento..." required></textarea>
+            <button type="submit" class="submit-comment-btn">Invia Commento</button>
+          </form>
+        </div>
+      </article>
+    </div>
+
+    <!-- ==================== 3. INDICE MARKETING (CON 1.1 - 1.6) ==================== -->
+    <div id="marketing-index-view" class="view-page">
+      <div class="index-header">
+        <h2><i class="fa-solid fa-chart-line" style="color: var(--accent-marketing);"></i> Schedario Marketing</h2>
+      </div>
+      <div class="index-list">
+        <div class="index-item" onclick="showView('art-mkt-1-1-view')">
+          <div class="index-item-info">
+            <span class="index-code" style="color: var(--accent-marketing);">1.1</span>
+            <span class="index-item-title">Cos'è il marketing?</span>
+          </div>
+          <i class="fa-solid fa-chevron-right" style="color: var(--text-muted);"></i>
+        </div>
+        <div class="index-item" onclick="showView('art-mkt-1-2-view')">
+          <div class="index-item-info">
+            <span class="index-code" style="color: var(--accent-marketing);">1.2</span>
+            <span class="index-item-title">I quattro pilastri del marketing</span>
+          </div>
+          <i class="fa-solid fa-chevron-right" style="color: var(--text-muted);"></i>
+        </div>
+        <div class="index-item" onclick="showView('art-mkt-1-3-view')">
+          <div class="index-item-info">
+            <span class="index-code" style="color: var(--accent-marketing);">1.3</span>
+            <span class="index-item-title">Dati</span>
+          </div>
+          <i class="fa-solid fa-chevron-right" style="color: var(--text-muted);"></i>
+        </div>
+        <div class="index-item" onclick="showView('art-mkt-1-4-view')">
+          <div class="index-item-info">
+            <span class="index-code" style="color: var(--accent-marketing);">1.4</span>
+            <span class="index-item-title">Obiettivi</span>
+          </div>
+          <i class="fa-solid fa-chevron-right" style="color: var(--text-muted);"></i>
+        </div>
+        <div class="index-item" onclick="showView('art-mkt-1-5-view')">
+          <div class="index-item-info">
+            <span class="index-code" style="color: var(--accent-marketing);">1.5</span>
+            <span class="index-item-title">Target</span>
+          </div>
+          <i class="fa-solid fa-chevron-right" style="color: var(--text-muted);"></i>
+        </div>
+        <div class="index-item" onclick="showView('art-mkt-1-6-view')">
+          <div class="index-item-info">
+            <span class="index-code" style="color: var(--accent-marketing);">1.6</span>
+            <span class="index-item-title">Budget</span>
+          </div>
+          <i class="fa-solid fa-chevron-right" style="color: var(--text-muted);"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- ARTICOLO MARKETING 1.1 -->
+    <div id="art-mkt-1-1-view" class="view-page">
+      <article class="article-box">
+        <span class="index-code" style="color: var(--accent-marketing); margin-bottom: 10px; display: inline-block;">1.1 MARKETING</span>
+        <h3>Cos'è il marketing?</h3>
+        <div class="article-content">
+          <p>Il marketing è tutto quell'insieme di strategie, attività e strumenti usati dalle aziende per capire i bisogni delle persone, creare prodotti o servizi per farne profitto. <br>
+          L'obiettivo del marketing è queelo di costruire una relazione di fiducia e duratura tra il marchio e i clienti ancor prima della vendita dei prodotti.<br>
+          il marketing si basa tradizionalmente su quattro elementi principali, noti come il Marketing Mix o le 4 P:<br>
+            <ul>
+              <li>Prodotto (Product): Cosa si offre al mercato? Deve risolvere un problema o soddisfare un desiderio specifico dell'utente.</li>
+              <li>Prezzo (Price): Quanto costa il prodotto? Il prezzo riflette il valore percepito, la concorrenza e i costi di produzione.</li>
+              <li>Posto / Distribuzione (Place): Dove si acquista? Può essere in un negozio fisico, online (e-commerce), tramite app o distributori.</li>
+              <li>Promozione (Promotion): Come viene fatto conoscere? Comprende la pubblicità, i social media, le sponsorizzazioni e il contenuto informativo.</li>
+          </ul>
+          Esistono molteplici tipi di marketing ma noi in questo forum ci occupiamo di un ramo del marketing ossia il Digital Marketing.</p>
+        </div>
+        <div class="comments-wrapper">
+          <div class="comments-title"><i class="fa-regular fa-comment"></i> Commenti</div>
+          <div class="comment-list" id="comments-mkt-1-1"></div>
+          <form class="add-comment-form" onsubmit="addComment(event, 'comments-mkt-1-1')">
+            <textarea rows="2" placeholder="Scrivi un commento..." required></textarea>
+            <button type="submit" class="submit-comment-btn">Invia Commento</button>
+          </form>
+        </div>
+      </article>
+    </div>
+
+    <!-- ARTICOLO MARKETING 1.2 -->
+    <div id="art-mkt-1-2-view" class="view-page">
+      <article class="article-box">
+        <span class="index-code" style="color: var(--accent-marketing); margin-bottom: 10px; display: inline-block;">1.2 MARKETING</span>
+        <h3>I quattro pilastri del digital marketing</h3>
+        <div class="article-content">
+          <p>Per comprendere bene il Digital Marketing bisogna prima comprende i 4 pilastri fondamentali da cui è formato.<br>
+          Questi sono importanti poichè oltre a darti un'idea di cosa è il Digital Marketing ti permattono di capirne le basi.<br>
+          I 4 pilastri sono i seguenti:<br>
+        <ol>
+          <li>DATI<br> 
+              Bisogna sempre avere una base solida di dati.</li>
+          <li>OBBIETTIVI<br>
+              Si deve sempre cercare di allienare le offerte agli obbiettivi aziendali.</li>
+          <li>TARGET<br> 
+              Bisognerebbe avere sempre un buon target e creatività.</li>
+          <li>BUDGET<br>
+              Si deve avere i budget basati sulla domanda. </li>
+        </ol>  
+        Nei prossimi paragrafi spiegherò nel dettaglio questi quattro punti.</p>
+      </div>
+        <div class="comments-wrapper">
+          <div class="comments-title"><i class="fa-regular fa-comment"></i> Commenti</div>
+          <div class="comment-list" id="comments-mkt-1-2"></div>
+          <form class="add-comment-form" onsubmit="addComment(event, 'comments-mkt-1-2')">
+            <textarea rows="2" placeholder="Scrivi un commento..." required></textarea>
+            <button type="submit" class="submit-comment-btn">Invia Commento</button>
+          </form>
+        </div>
+      </article>
+    </div>
+
+    <!-- ARTICOLO MARKETING 1.3 -->
+    <div id="art-mkt-1-3-view" class="view-page">
+      <article class="article-box">
+        <span class="index-code" style="color: var(--accent-marketing); margin-bottom: 10px; display: inline-block;">1.3 MARKETING</span>
+        <h3>Dati</h3>
+        <div class="article-content">
+          <p>Nel Digital Marketing i dati sono tra le parti più importanti poichè forniscono risultati su cosa funziona e cosa va modificato.<br>
+             I dati forniscono segnali con cui ottimizzare i risultati.</p>
+        </div>
+        <div class="comments-wrapper">
+          <div class="comments-title"><i class="fa-regular fa-comment"></i> Commenti</div>
+          <div class="comment-list" id="comments-mkt-1-3"></div>
+          <form class="add-comment-form" onsubmit="addComment(event, 'comments-mkt-1-3')">
+            <textarea rows="2" placeholder="Scrivi un commento..." required></textarea>
+            <button type="submit" class="submit-comment-btn">Invia Commento</button>
+          </form>
+        </div>
+      </article>
+    </div>
+
+    <!-- ARTICOLO MARKETING 1.4 -->
+    <div id="art-mkt-1-4-view" class="view-page">
+      <article class="article-box">
+        <span class="index-code" style="color: var(--accent-marketing); margin-bottom: 10px; display: inline-block;">1.4 MARKETING</span>
+        <h3>Obiettivi</h3>
+        <div class="article-content">
+          <p>Gli obbiettivi in poche parole sono il motore per il vero valore aziendale. Definiscono quindi il risultato che si vuole ottenere da una campagna.<br>
+          Gli obbiettivi poi si suddividono in:
+        <ol>
+          <li>Primari<br> 
+              Ossia gli obbiettivi principali da raggiungere.</li>
+          <li>Secondari<br>
+              Sono obbiettivi importanti ma non fondamentali.</li>
+        </ol></p>
+        </div>
+        <div class="comments-wrapper">
+          <div class="comments-title"><i class="fa-regular fa-comment"></i> Commenti</div>
+          <div class="comment-list" id="comments-mkt-1-4"></div>
+          <form class="add-comment-form" onsubmit="addComment(event, 'comments-mkt-1-4')">
+            <textarea rows="2" placeholder="Scrivi un commento..." required></textarea>
+            <button type="submit" class="submit-comment-btn">Invia Commento</button>
+          </form>
+        </div>
+      </article>
+    </div>
+
+    <!-- ARTICOLO MARKETING 1.5 -->
+    <div id="art-mkt-1-5-view" class="view-page">
+      <article class="article-box">
+        <span class="index-code" style="color: var(--accent-marketing); margin-bottom: 10px; display: inline-block;">1.5 MARKETING</span>
+        <h3>Target</h3>
+        <div class="article-content">
+          <p>Il target è lo strumento principale per intercettare i clienti. Il target sono quelle frasi che spingono il cliente a interessarsi a un prodotto/servizio.<br>
+          Un buon target permette di intercettare molti più clienti che con qualsiasi altro target.</p>
+        </div>
+        <div class="comments-wrapper">
+          <div class="comments-title"><i class="fa-regular fa-comment"></i> Commenti</div>
+          <div class="comment-list" id="comments-mkt-1-5"></div>
+          <form class="add-comment-form" onsubmit="addComment(event, 'comments-mkt-1-5')">
+            <textarea rows="2" placeholder="Scrivi un commento..." required></textarea>
+            <button type="submit" class="submit-comment-btn">Invia Commento</button>
+          </form>
+        </div>
+      </article>
+    </div>
+
+    <!-- ARTICOLO MARKETING 1.6 -->
+    <div id="art-mkt-1-6-view" class="view-page">
+      <article class="article-box">
+        <span class="index-code" style="color: var(--accent-marketing); margin-bottom: 10px; display: inline-block;">1.6 MARKETING</span>
+        <h3>Budget</h3>
+        <div class="article-content">
+          <p>Il budget ossia l'ultimo dei 4 pilastri del Digital Marketing è il "carburante".<br>
+             Infatti un budget basato sulla domanda fornisce il "carburante" per una domanda redditizia.</p>
+        </div>
+        <div class="comments-wrapper">
+          <div class="comments-title"><i class="fa-regular fa-comment"></i> Commenti</div>
+          <div class="comment-list" id="comments-mkt-1-6"></div>
+          <form class="add-comment-form" onsubmit="addComment(event, 'comments-mkt-1-6')">
+            <textarea rows="2" placeholder="Scrivi un commento..." required></textarea>
+            <button type="submit" class="submit-comment-btn">Invia Commento</button>
+          </form>
+        </div>
+      </article>
+    </div>
+
+    <!-- ==================== 4. CONSIGLIO SETTIMANALE ==================== -->
+    <div id="weekly-view" class="view-page">
+      <article class="article-box" style="border-left: 4px solid var(--accent-weekly);">
+        <span class="index-code" style="color: var(--accent-weekly); margin-bottom: 10px; display: inline-block;">FOCUS SETTIMANALE</span>
+        <h3>La regola del tempo</h3>
+        <div class="article-content">
+          <p>Organizza il tuo tempo <strong>bene</strong>. Una volta organizzata la tua giornata la mente sarà più rilassata e recupererai più tempo!</p>
+        </div>
+        <div class="comments-wrapper">
+          <div class="comments-title"><i class="fa-regular fa-comment"></i> Discussione della Settimana</div>
+          <div class="comment-list" id="comments-weekly"></div>
+          <form class="add-comment-form" onsubmit="addComment(event, 'comments-weekly')">
+            <textarea rows="2" placeholder="Cosa ne pensi di questo consiglio?" required></textarea>
+            <button type="submit" class="submit-comment-btn" style="background: var(--accent-weekly);">Invia Commento</button>
+          </form>
+        </div>
+      </article>
+    </div>
+
+    <!-- ==================== 5. PAGINA COMMENTI GENERALI ==================== -->
+    <div id="comments-view" class="view-page">
+      <div class="article-box">
+        <h3 style="font-family: var(--font-heading); font-size: 1.8rem; margin-bottom: 1rem;">Community e Domande Generali</h3>
+        
+        <div class="comments-wrapper" style="border-top: none; padding-top: 0;">
+          <div class="comment-list" id="comments-general">
+            <div class="comment-item" style="border-left: 3px solid var(--accent-gold); background: rgba(245, 158, 11, 0.05);">
+              <div class="comment-header">
+                <span class="comment-author">Francesco Azzolin <span class="author-badge">AUTORE</span></span>
+                <span class="comment-time">Messaggio Fissato</span>
+              </div>
+              <div class="comment-text" style="font-size: 1rem; color: #fff; margin-bottom: 0;">
+                Ciao, sono Francesco e risponderò a tutte le vostre domande.
+              </div>
+            </div>
+          </div>
+
+          <form class="add-comment-form" onsubmit="addComment(event, 'comments-general')" style="margin-top: 1.5rem;">
+            <textarea rows="3" placeholder="Scrivi la tua domanda o messaggio..." required></textarea>
+            <button type="submit" class="submit-comment-btn" style="background: var(--accent-gold); color: #000;">Invia Messaggio</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER CON IL TUO NOME -->
+  <footer>
+    <p>&copy; 2026 Mindset & Marketing Hub. Creato e curato da <strong>Francesco Azzolin</strong>.<strong>TUTTI I DOMINI SONO RISERVATI.</strong></p>
+  </footer>
+
+  <script>
+   let currentIndex = 0; // profondità di navigazione interna al sito
+
+  function renderView(viewId) {
+    document.querySelectorAll('.view-page').forEach(page => {
+      page.classList.remove('active');
+    });
+    const target = document.getElementById(viewId) || document.getElementById('home-view');
+    target.classList.add('active');
+
+    document.getElementById('header-back-btn').style.display =
+      (target.id === 'home-view') ? 'none' : 'inline-flex';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function showView(viewId) {
+    const current = history.state && history.state.view;
+    if (viewId === current) return;
+
+    currentIndex++;
+    try {
+      history.pushState({ view: viewId, idx: currentIndex }, '', '#' + viewId);
+    } catch (e) {}
+    renderView(viewId);
+  }
+
+  // Freccia indietro / avanti del browser (e swipe su mobile)
+  window.addEventListener('popstate', function (event) {
+    const state = event.state;
+    if (state && state.view) {
+      currentIndex = state.idx || 0;
+      renderView(state.view);
+    } else {
+      currentIndex = 0;
+      renderView('home-view');
+    }
+  });
+
+  // Pulsante "Torna Indietro" del sito
+  function goBack() {
+    if (currentIndex > 0) {
+      history.back();
+    } else {
+      showView('home-view');
+    }
+  }
+
+  // Avvio: supporta anche l'apertura diretta di un link con #pagina
+  (function init() {
+    const hash = location.hash.slice(1);
+    const el = hash ? document.getElementById(hash) : null;
+    const startView = (el && el.classList.contains('view-page')) ? el.id : 'home-view';
+    try {
+      history.replaceState({ view: startView, idx: 0 }, '', '#' + startView);
+    } catch (e) {}
+    renderView(startView);
+  })();
+
+  function addComment(event, containerId) {
+    event.preventDefault();
+    const form = event.target;
+    const textarea = form.querySelector('textarea');
+    const text = textarea.value.trim();
+    if (!text) return;
+
+    const commentContainer = document.getElementById(containerId);
+    const commentDiv = document.createElement('div');
+    commentDiv.className = 'comment-item';
+    commentDiv.innerHTML = `
+      <div class="comment-header">
+        <span class="comment-author">Visitatore</span>
+        <span class="comment-time">Adesso</span>
+      </div>
+      <div class="comment-text">${escapeHtml(text)}</div>
+      <div class="comment-actions">
+        <button class="action-btn" onclick="toggleLike(this)"><i class="fa-regular fa-heart"></i> <span>0</span> Mi Piace</button>
+        <button class="action-btn" onclick="replyComment('${containerId}')"><i class="fa-solid fa-reply"></i> Rispondi</button>
+      </div>
+    `;
+    commentContainer.appendChild(commentDiv);
+    textarea.value = '';
+  }
+
+  function replyComment(containerId) {
+    const text = prompt("Scrivi la tua risposta come Francesco Azzolin:");
+    if (!text || !text.trim()) return;
+
+    const commentContainer = document.getElementById(containerId);
+    const replyDiv = document.createElement('div');
+    replyDiv.className = 'comment-item reply-item';
+    replyDiv.innerHTML = `
+      <div class="comment-header">
+        <span class="comment-author">Francesco Azzolin <span class="author-badge">AUTORE</span></span>
+        <span class="comment-time">Adesso</span>
+      </div>
+      <div class="comment-text">${escapeHtml(text.trim())}</div>
+      <div class="comment-actions">
+        <button class="action-btn" onclick="toggleLike(this)"><i class="fa-regular fa-heart"></i> <span>0</span> Mi Piace</button>
+      </div>
+    `;
+    commentContainer.appendChild(replyDiv);
+  }
+
+  function toggleLike(btn) {
+    const icon = btn.querySelector('i');
+    const countSpan = btn.querySelector('span');
+    let count = parseInt(countSpan.innerText);
+
+    if (btn.classList.contains('liked')) {
+      btn.classList.remove('liked');
+      icon.className = 'fa-regular fa-heart';
+      countSpan.innerText = count - 1;
+    } else {
+      btn.classList.add('liked');
+      icon.className = 'fa-solid fa-heart';
+      countSpan.innerText = count + 1;
+    }
+  }
+
+  function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.innerText = text;
+    return div.innerHTML;
+  }
+  // Navigazione con telecomando/tastiera: rende selezionabili i riquadri cliccabili
+  document.querySelectorAll('.hub-card, .index-item, .site-brand').forEach(el => {
+    el.setAttribute('tabindex', '0');
+    el.setAttribute('role', 'button');
+    el.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        el.click();
+      }
+    });
+  });
+  </script>
+</body>
+</html>
